@@ -1,0 +1,2 @@
+export const DELAY_TOGGLE = 'DELAY_TOGGLE'
+export const DELAY_SET_TIME = 'DELAY_SET_TIME'
