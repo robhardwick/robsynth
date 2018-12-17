@@ -8,6 +8,7 @@ import {
     sequencerSetStep,
     sequencerSetBPM
 } from '../../actions/sequencer'
+import FREQUENCIES from '../../audio/sequencer/frequencies'
 import PRESETS from '../../reducers/sequencer/presets'
 
 
@@ -37,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
         let y = e.clientY - bounds.top
 
         let step = Math.floor((x / width) * sequence.length)
-        let value = Math.floor((y / CANVAS_HEIGHT) * sequence.length)
+        let value = Math.ceil(((CANVAS_HEIGHT - y) / CANVAS_HEIGHT) * FREQUENCIES.length)
 
         dispatch(sequencerSetStep(step, value))
     },
@@ -49,7 +50,7 @@ const mapDispatchToProps = dispatch => ({
 
 const getRect = (step, sequence, width, blockWidth, blockHeight) => ([
     ((step / sequence.length) * width) + 0.5,
-    ((sequence[step] / sequence.length) * CANVAS_HEIGHT) + 0.5,
+    (((FREQUENCIES.length - sequence[step]) / FREQUENCIES.length) * CANVAS_HEIGHT) + 0.5,
     blockWidth,
     blockHeight
 ])
@@ -67,7 +68,7 @@ class Sequencer extends Component {
 
     componentDidUpdate() {
         const blockWidth = this.state.width / this.props.sequence.length
-        const blockHeight = CANVAS_HEIGHT / this.props.sequence.length
+        const blockHeight = CANVAS_HEIGHT / FREQUENCIES.length
 
         const context = this.canvas.getContext('2d')
 
