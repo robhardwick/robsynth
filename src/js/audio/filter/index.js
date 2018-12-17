@@ -1,4 +1,5 @@
 import { subscribe } from 'redux-subscriber'
+import { LFO_FILTER_FREQUENCY, LFO_FILTER_RESONANCE } from '../lfo/targets'
 
 
 export default class Filter {
@@ -26,5 +27,12 @@ export default class Filter {
 
     resonance(state) {
         this.node.Q.setTargetAtTime(state.filter.resonance, this.audioCtx.currentTime, 0.015)
+    }
+
+    get targets() {
+        return {
+            [LFO_FILTER_FREQUENCY]: this.node.frequency,
+            [LFO_FILTER_RESONANCE]: this.node.Q,
+        }
     }
 }

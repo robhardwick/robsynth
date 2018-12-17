@@ -1,4 +1,5 @@
 import { subscribe } from 'redux-subscriber'
+import { LFO_DISTORTION } from '../lfo/targets'
 
 
 const curve = (value) => {
@@ -41,4 +42,9 @@ export default class Distortion {
         this.distort.curve = curve(state.distortion.value)
     }
 
+    get targets() {
+        return {
+            [LFO_DISTORTION]: this.node.gain
+        }
+    }
 }

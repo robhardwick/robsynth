@@ -6,6 +6,7 @@ import filter from './filter'
 import delay from './delay'
 import distortion from './distortion'
 import reverb from './reverb'
+import lfos from './lfos'
 
 
 export default combineReducers({
@@ -16,4 +17,5 @@ export default combineReducers({
     delay,
     distortion,
     reverb,
+    lfos,
 })

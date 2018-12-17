@@ -1,0 +1,4 @@
+export const LFO_TOGGLE = 'LFO_TOGGLE'
+export const LFO_SET_TARGET = 'LFO_SET_TARGET'
+export const LFO_SET_FREQUENCY = 'LFO_SET_FREQUENCY'
+export const LFO_SET_WAVEFROM = 'LFO_SET_WAVEFROM'

@@ -1,4 +1,5 @@
 import { subscribe } from 'redux-subscriber'
+import { LFO_DELAY } from '../lfo/targets'
 
 
 export default class Delay {
@@ -30,5 +31,11 @@ export default class Delay {
 
     time(state) {
         this.delay.delayTime.setTargetAtTime(state.delay.time, this.audioCtx.currentTime, 0.1)
+    }
+
+    get targets() {
+        return {
+            [LFO_DELAY]: this.delay.delayTime
+        }
     }
 }

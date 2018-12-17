@@ -6,6 +6,7 @@ import Filter from '../filter'
 import Delay from '../delay'
 import Distortion from '../distortion'
 import Reverb from '../reverb'
+import LFO from '../lfo'
 
 const App = () => (
     <div>
@@ -52,6 +53,20 @@ const App = () => (
                         <Reverb/>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col m-3">
+                <LFO index={0} name="LFO1"/>
+            </div>
+            <div className="col m-3">
+                <LFO index={1} name="LFO2"/>
+            </div>
+            <div className="col m-3">
+                <LFO index={2} name="LFO3"/>
+            </div>
+            <div className="col m-3">
+                <LFO index={3} name="LFO4"/>
             </div>
         </div>
     </div>

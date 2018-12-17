@@ -2,14 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { oscillatorSetType, oscillatorSetDetune } from '../../actions/oscillator'
-import Sine from '../../../../img/waveforms/sine.svg'
-import Square from '../../../../img/waveforms/square.svg'
-import Triangle from '../../../../img/waveforms/triangle.svg'
-import Sawtooth from '../../../../img/waveforms/sawtooth.svg'
-
-
-const WAVEFORMS = [['sine', Sine], ['square', Square], ['triangle', Triangle], ['sawtooth', Sawtooth]]
-
+import WAVEFORMS from '../waveforms'
 
 const mapStateToProps = (state, ownProps) => (state.oscillators[ownProps.index])
 

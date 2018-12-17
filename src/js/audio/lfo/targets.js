@@ -1,0 +1,6 @@
+export const LFO_PITCH = 'pitch'
+export const LFO_AMPLITUDE =  'amplitude'
+export const LFO_FILTER_FREQUENCY = 'filter_frequency'
+export const LFO_FILTER_RESONANCE = 'filter_resonance'
+export const LFO_DELAY = 'delay'
+export const LFO_DISTORTION = 'distortion'

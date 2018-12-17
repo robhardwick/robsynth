@@ -1,4 +1,6 @@
 import { subscribe } from 'redux-subscriber'
+import { LFO_PITCH } from '../lfo/targets'
+
 
 export default class Oscillator {
     constructor(store, audioCtx, index) {
@@ -39,5 +41,11 @@ export default class Oscillator {
 
     type(state) {
         this.node.type = state.oscillators[this.index].type
+    }
+
+    get targets() {
+        return {
+            [LFO_PITCH]: this.node.detune
+        }
     }
 }

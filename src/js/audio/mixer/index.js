@@ -1,4 +1,5 @@
 import Channel from './channel'
+import { LFO_AMPLITUDE } from '../lfo/targets'
 
 
 export default class Mixer {
@@ -14,5 +15,13 @@ export default class Mixer {
             channel.connect(destination.node)
         })
         return destination
+    }
+
+    get targets() {
+        return {
+            [LFO_AMPLITUDE]: this.channels.map(channel => (
+                channel.node.gain
+            )),
+        }
     }
 }
