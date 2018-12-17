@@ -22,9 +22,9 @@ export default class Sequencer {
     }
 
     queueStep() {
-        // Step Interval = 60000 ms / (BPM * BAR of 4)
+        // Step Interval = 60000 ms / (BPM * BAR of 8)
         const bpm = this.store.getState().sequencer.bpm
-        this.timeoutId = setTimeout(() => this.executeStep(), 60000 / (bpm * 4))
+        this.timeoutId = setTimeout(() => this.executeStep(), 60000 / (bpm * 8))
     }
 
     executeStep() {

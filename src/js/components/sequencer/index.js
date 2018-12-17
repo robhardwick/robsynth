@@ -70,9 +70,12 @@ class Sequencer extends Component {
         const blockHeight = CANVAS_HEIGHT / this.props.sequence.length
 
         const context = this.canvas.getContext('2d')
+
+        // Background
         context.fillStyle = COLOUR_BG
         context.fillRect(0, 0, this.state.width, CANVAS_HEIGHT)
 
+        // Draw sequence
         context.fillStyle = COLOUR_HIGHLIGHT
         for (let i = 0; i < this.props.sequence.length; i++) {
             if (this.props.sequence[i]) {
@@ -86,7 +89,8 @@ class Sequencer extends Component {
             }
         }
 
-        context.strokeStyle = COLOUR_FG
+        // Draw grid
+        context.strokeStyle = COLOUR_HIGHLIGHT
         context.beginPath()
         for (let x = blockWidth; x <= this.state.width; x += blockWidth) {
             context.moveTo(x + 0.5, 0.5)
@@ -98,6 +102,7 @@ class Sequencer extends Component {
         }
         context.stroke()
 
+        // Draw current step
         context.fillStyle = COLOUR_FG
         if (this.props.sequence[this.props.step]) {
             context.fillRect(...getRect(

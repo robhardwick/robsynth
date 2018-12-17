@@ -14,7 +14,7 @@ const initialState = {
     step: 0,
     preset: 0,
     sequence: PRESETS[0].sequence,
-    bpm: 120
+    bpm: PRESETS[0].bpm,
 }
 
 const sequencer = (state = initialState, action) => {
@@ -40,6 +40,7 @@ const sequencer = (state = initialState, action) => {
             ...state,
             preset: action.preset,
             sequence: PRESETS[action.preset].sequence,
+            bpm: PRESETS[action.preset].bpm,
         }
     case SEQUENCER_SET_STEP: {
         let sequence = [...state.sequence]
